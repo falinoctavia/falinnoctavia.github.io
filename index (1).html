@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV dan Portofolio Falin Octavia</title>
+    <style>
+        /* Reset dasar */
+        body, h1, h2, p, ul {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #fce4ec; /* Warna latar belakang pink lembut */
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        header {
+            background-color: #e91e63; /* Warna pink cerah untuk header */
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+        }
+        header h1 {
+            font-size: 3em;
+            font-weight: bold;
+        }
+        section.container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        h2 {
+            color: #e91e63;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #e91e63;
+            padding-bottom: 10px;
+        }
+        .profile {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .profile p {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .profile a {
+            color: #e91e63;
+            text-decoration: none;
+        }
+        .profile a:hover {
+            text-decoration: underline;
+        }
+        .profile-picture {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 20px auto;
+            display: block;
+        }
+        .skills, .education {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .skills ul, .education ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+        }
+        .skills li, .education li {
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 1.1em;
+        }
+        .portfolio {
+            text-align: center;
+        }
+        .portfolio img {
+            max-width: 100%;
+            max-height: 400px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        input[type="file"] {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-info {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        .contact-info a {
+            color: #e91e63;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        /* Responsif untuk layar kecil */
+        @media (max-width: 768px) {
+            .skills, .education {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CV dan Portofolio Falin Octavia</h1>
+    </header>
+
+    <section class="container">
+        <!-- Profil -->
+        <div class="profile">
+            <img src="profile.jpg" alt="Falin Octavia" class="profile-picture">
+            <h2>Profil</h2>
+            <p>Nama: Falin Octavia</p>
+            <p>Jurusan: Desain Komunikasi Visual (Semester 3) di UNPRI, Medan</p>
+            <p>Email: <a href="mailto:falinoctavia@gmail.com">falinoctavia@gmail.com</a></p>
+            <p>Instagram: <a href="https://instagram.com/falinoctaviaa" target="_blank">@falinoctaviaa</a></p>
+        </div>
+
+        <!-- Pendidikan -->
+        <div class="education">
+            <div>
+                <h2>Pendidikan</h2>
+                <ul>
+                    <li>SD, SMP, SMA di Methodist Lubuk Pakam</li>
+                    <li>Universitas Prima Indonesia (UNPRI), Medan - Desain Komunikasi Visual (Semester 3)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Keterampilan -->
+        <div class="skills">
+            <div>
+                <h2>Keterampilan</h2>
+                <ul>
+                    <li>Adobe Illustrator</li>
+                    <li>Adobe Photoshop</li>
+                    <li>Adobe Lightroom</li>
+                    <li>Blender</li>
+                    <li>Canva</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Portofolio -->
+        <div class="portfolio">
+            <h2>Portofolio</h2>
+            <p>Silakan pilih gambar dari galeri untuk ditampilkan sebagai portofolio:</p>
+            <input type="file" id="portfolioInput" accept="image/*">
+            <br><br>
+            <img id="portfolioPreview" class="portfolio-img" style="display: none;" alt="Preview Gambar Portofolio">
+
+            <script>
+                document.getElementById('portfolioInput').addEventListener('change', function(event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            const image = document.getElementById('portfolioPreview');
+                            image.src = e.target.result;
+                            image.style.display = 'block';
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            </script>
+        </div>
+
+        <!-- Kontak -->
+        <div class="contact-info">
+            <h2>Kontak</h2>
+            <p>Untuk informasi lebih lanjut atau kolaborasi, silakan hubungi saya melalui email atau Instagram di atas.</p>
+        </div>
+    </section>
+
+</body>
+</html>
